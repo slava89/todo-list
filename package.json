@@ -2,11 +2,12 @@
   "name": "todo-list",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "devDependencies": {
-    "bower": "^1.5.2"
+    "bower": "^1.5.2",
+    "http-server": "^0.8.0"
   },
   "scripts": {
+    "start": "http-server public -o",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
