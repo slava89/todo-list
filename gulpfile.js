@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var concat = require('gulp-concat');
 var sourcemaps = require('gulp-sourcemaps');
+var browserSync = require('browser-sync');
 
 var vendors = {
     css: [
@@ -29,7 +30,8 @@ gulp.task('html', function() {
 gulp.task('css', function() {
     return gulp.src(vendors.css.concat(src.css))
         .pipe(concat('app.css'))
-        .pipe(gulp.dest('public'));
+        .pipe(gulp.dest('public'))
+        .pipe(browserSync.stream());
 });
 
 gulp.task('js', function() {
@@ -38,11 +40,19 @@ gulp.task('js', function() {
         .pipe(gulp.dest('public'));
 });
 
-gulp.task('watch', function() {
+gulp.task('js-watch', ['js'], browserSync.reload);
+
+gulp.task('serve', ['default'], function() {
+    browserSync.init({
+        server: "./public"
+    });
+
     gulp.watch(src.css, ['css']);
-    gulp.watch(src.js, ['js']);
+    gulp.watch(src.js, ['js-watch']);
     gulp.watch(src.html, ['html']);
+    gulp.watch("public/index.html").on('change', browserSync.reload);
 });
+
 
 gulp.task('default', ['html', 'css', 'js']);
 
