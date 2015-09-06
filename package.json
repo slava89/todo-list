@@ -1,0 +1,22 @@
+{
+  "name": "todo-list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {
+    "bower": "^1.5.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slava89/todo-list.git"
+  },
+  "author": "Slava Krivtsov <slava.kr.89@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/slava89/todo-list/issues"
+  },
+  "homepage": "https://github.com/slava89/todo-list#readme"
+}
