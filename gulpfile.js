@@ -5,10 +5,14 @@ var browserSync = require('browser-sync');
 
 var vendors = {
     css: [
-        'bootstrap/dist/css/bootstrap.css'
+        'bootstrap/dist/css/bootstrap.css',
+        'font-awesome/css/font-awesome.css'
     ].map(addBowerPath),
     js: [
         'angular/angular.js'
+    ].map(addBowerPath),
+    fonts: [
+        'font-awesome/fonts/*.*'
     ].map(addBowerPath)
 };
 
@@ -25,6 +29,11 @@ var src = {
 gulp.task('html', function() {
     return gulp.src(src.html)
         .pipe(gulp.dest('public'));
+});
+
+gulp.task('fonts', function() {
+    return gulp.src(vendors.fonts)
+        .pipe(gulp.dest('public/fonts'));
 });
 
 gulp.task('css', function() {
@@ -54,7 +63,7 @@ gulp.task('serve', ['default'], function() {
 });
 
 
-gulp.task('default', ['html', 'css', 'js']);
+gulp.task('default', ['html', 'fonts', 'css', 'js']);
 
 function addBowerPath(path) {
     return './bower_components/' + path;
