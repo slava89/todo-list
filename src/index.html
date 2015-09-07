@@ -6,8 +6,8 @@
 </head>
 <body ng-app="todo-list" ng-controller="todoController as todoCtrl">
 	
-	<form ng-submit="todoAdd()">
-    	<input type'text' ng-model="todoInput" size='30'>
+	<form ng-submit="todoCtrl.todoAdd()">
+    	<input type'text' ng-model="todoCtrl.todoInput" size='30'>
     	<input type='submit' value='Add New'>
 	</form>
 
