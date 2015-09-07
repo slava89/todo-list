@@ -4,9 +4,14 @@
   <title>todo-list</title>
   <link rel="stylesheet" type="text/css" href="app.css">
 </head>
-<body ng-app="todo-list">
-	<p>{{'Hello' + ' my World!'}}</p>
-	<i class="fa fa-check"></i>
+<body ng-app="todo-list" ng-controller="todoController as todoCtrl">
+	
+	<div ng-repeat="case in todoCtrl.tasks">
+		<p>
+		{{case.desc}}
+		<i class="fa" ng-class={'fa-check':case.done,'fa-close':!case.done}></i>
+		</p>
+	</div>
 
 
 	<script src="app.js"></script>
