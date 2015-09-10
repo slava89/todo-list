@@ -11,11 +11,13 @@
     	<input type='submit' value='Add New'>
 	</form>
 
-	<div ng-repeat="case in todoCtrl.tasks">
-
+	<div ng-repeat="case in todoCtrl.tasks track by $index">
 		<p>
-		{{case.desc}}
-		<i class="fa" ng-class={'fa-check':case.done,'fa-close':!case.done}></i>
+			<i class="fa" ng-class={'fa-check':case.done,'fa-close':!case.done} ng-click="case.done=!case.done"></i>
+			
+			{{case.desc}}
+			
+			<button ng-click="todoCtrl.removeItem($index)">Delete</button>
 		</p>
 	</div>
 
